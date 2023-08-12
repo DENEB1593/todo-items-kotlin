@@ -38,7 +38,7 @@ class TodoItemPageController(private val todoItemService: TodoItemService) {
                 IllegalStateException("todo item id:$id not found")
             }
 
-        model.addAttribute("todo", todoItem)
+        model.addAttribute("todoItem", todoItem)
 
         return "edit-todo-item"
     }
@@ -47,7 +47,7 @@ class TodoItemPageController(private val todoItemService: TodoItemService) {
      * TO-DO 작성화면
      */
     @GetMapping("/write")
-    fun writePage(): String {
+    fun writePage(todoItem: TodoItem): String {
         return "new-todo-item"
     }
 
