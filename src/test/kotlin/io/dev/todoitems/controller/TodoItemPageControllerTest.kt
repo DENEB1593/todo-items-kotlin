@@ -1,7 +1,5 @@
 package io.dev.todoitems.controller
 
-import io.dev.todoitems.entity.TodoItem
-import io.dev.todoitems.entity.newTodoItem
 import io.dev.todoitems.service.TodoItemService
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

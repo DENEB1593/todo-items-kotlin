@@ -17,23 +17,13 @@ data class TodoItem (
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = null,
 
-    var description: String?,
+    var description: String? = null,
 
     @Column(nullable = false)
-    var isComplete: Boolean?,
+    var isComplete: Boolean? = null,
 
-    var createdAt: LocalDateTime?,
+    var createdAt: LocalDateTime? = null,
 
-    var updatedAt: LocalDateTime?
+    var updatedAt: LocalDateTime? = null
 
 )
-
-fun newTodoItem(description: String?, isComplete: Boolean?): TodoItem {
-    return TodoItem(
-        null,
-        description,
-        isComplete,
-        LocalDateTime.now(),
-        LocalDateTime.now()
-    )
-}
