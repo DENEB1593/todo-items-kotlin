@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 
 @Controller
-class TodoItemPageController(private val todoItemService: TodoItemService) {
+class TodoItemPageController(
+    private val todoItemService: TodoItemService
+) {
 
     /**
      * 메인 화면
@@ -47,9 +49,7 @@ class TodoItemPageController(private val todoItemService: TodoItemService) {
      * TO-DO 작성화면
      */
     @GetMapping("/write")
-    fun writePage(todoItem: TodoItem): String {
-        return "new-todo-item"
-    }
+    fun writePage(todoItem: TodoItem): String = "new-todo-item"
 
 }
 
@@ -57,7 +57,9 @@ class TodoItemPageController(private val todoItemService: TodoItemService) {
  * TO-DO 트랜잭션 처리
  */
 @Controller
-class TodoItemController(private val todoItemService: TodoItemService) {
+class TodoItemController(
+    private val todoItemService: TodoItemService
+) {
 
     private val REDIRECT_TO_MAIN: String = "redirect:/"
 

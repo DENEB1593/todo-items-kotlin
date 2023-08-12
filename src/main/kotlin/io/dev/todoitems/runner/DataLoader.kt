@@ -7,11 +7,13 @@ import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
 
 @Component
-class DataLoader(val todoItemRepository: TodoItemRepository): CommandLineRunner {
+class DataLoader(
+    private val todoItemRepository: TodoItemRepository
+): CommandLineRunner {
 
     override fun run(vararg args: String?) {
 
-        val faker: Faker = Faker();
+        val faker = Faker();
 
         for (i in 1..10) {
 
