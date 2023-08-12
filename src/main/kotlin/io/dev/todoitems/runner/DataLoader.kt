@@ -12,21 +12,22 @@ class DataLoader(
     private val todoItemRepository: TodoItemRepository
 ): CommandLineRunner {
 
+    val faker = Faker();
+
     override fun run(vararg args: String?) {
 
-        val faker = Faker();
+        val todoItems = mutableListOf<TodoItem>()
 
         for (i in 1..10) {
-
             val todoItem = TodoItem(
-                description = faker.job().title(),
-                isComplete = faker.bool().bool(),
-                createdAt = LocalDateTime.now(),
-                updatedAt = LocalDateTime.now()
+                faker.job().title(),
+                faker.bool().bool(),
+                LocalDateTime.now()
             )
-
-            todoItemRepository.save(todoItem)
+            todoItems.add(todoItem)
         }
+
+        todoItemRepository.saveAll(todoItems)
 
     }
 

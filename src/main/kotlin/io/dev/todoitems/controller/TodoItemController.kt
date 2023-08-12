@@ -68,10 +68,9 @@ class TodoItemController(
         request: TodoItem): String {
 
         val todoItem = TodoItem(
-            description = request.description,
-            isComplete = request.isComplete,
-            createdAt = LocalDateTime.now(),
-            updatedAt = LocalDateTime.now()
+            request.description,
+            request.isComplete,
+            LocalDateTime.now()
         )
 
         todoItemService.write(todoItem)
@@ -92,8 +91,9 @@ class TodoItemController(
                 IllegalStateException("todo item id:$id not found")
             }
 
-        todoItem.description = request.description
-        todoItem.isComplete = request.isComplete
+        todoItem.update(
+            request.description,
+            request.isComplete)
 
         todoItemService.write(todoItem)
 
