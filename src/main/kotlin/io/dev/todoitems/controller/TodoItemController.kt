@@ -5,7 +5,6 @@ import io.dev.todoitems.service.TodoItemService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
-import java.time.LocalDateTime
 
 @Controller
 class TodoItemPageController(
@@ -69,8 +68,7 @@ class TodoItemController(
 
         val todoItem = TodoItem(
             request.description,
-            request.isComplete,
-            LocalDateTime.now()
+            request.isComplete
         )
 
         todoItemService.write(todoItem)
@@ -93,7 +91,8 @@ class TodoItemController(
 
         todoItem.update(
             request.description,
-            request.isComplete)
+            request.isComplete
+        )
 
         todoItemService.write(todoItem)
 

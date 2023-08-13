@@ -5,7 +5,6 @@ import io.dev.todoitems.entity.TodoItem
 import io.dev.todoitems.repository.TodoItemRepository
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
-import java.time.LocalDateTime
 
 @Component
 class DataLoader(
@@ -21,8 +20,7 @@ class DataLoader(
         for (i in 1..10) {
             val todoItem = TodoItem(
                 faker.job().title(),
-                faker.bool().bool(),
-                LocalDateTime.now()
+                faker.bool().bool()
             )
             todoItems.add(todoItem)
         }
